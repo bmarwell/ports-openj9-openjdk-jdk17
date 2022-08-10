@@ -22,7 +22,7 @@ LICENSE=	GPLv2
 #LICENSE_FILE=	${WRKSRC}/LICENSE
        
 # bootstrap JDK needed
-USES=		ssl shebangfix
+USES=		ssl shebangfix autoreconf
 #BUILD_DEPENDS=	bash:shells/bash
 
 CONFIGURE_ARGS=	--with-boot-jdk=/usr/local/openjdk17 \
@@ -35,6 +35,7 @@ GNU_CONFIGURE=	yes
 USE_IMAKE=	yes
 
 pre-configure:
-	 ${CHMOD} +x ${WRKSRC}/configure
+	 ${CHMOD} +x ${WRKSRC}/configure ${WRKSRC}/get_source.sh
+	 ${WRKSRC}/get_source.sh
 
 .include <bsd.port.mk>
