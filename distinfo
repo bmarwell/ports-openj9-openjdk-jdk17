@@ -1,3 +1,7 @@
-TIMESTAMP = 1660161063
-SHA256 (openj9-0.33.0.tar.gz) = 413142c252fa4dce7c27028cc0487e5247f7ce700e13945e4693120ad5cc47d4
-SIZE (openj9-0.33.0.tar.gz) = 94023542
+TIMESTAMP = 1660248445
+SHA256 (openj9-openjdk-jdk17/openj9-0.33.0.tar.gz) = 413142c252fa4dce7c27028cc0487e5247f7ce700e13945e4693120ad5cc47d4
+SIZE (openj9-openjdk-jdk17/openj9-0.33.0.tar.gz) = 94023542
+SHA256 (openj9-openjdk-jdk17/openj9-0.33.0.tar.gz) = 413142c252fa4dce7c27028cc0487e5247f7ce700e13945e4693120ad5cc47d4
+SIZE (openj9-openjdk-jdk17/openj9-0.33.0.tar.gz) = 94023542
+SHA256 (openj9-openjdk-jdk17/openj9-0.33.0.tar.gz) = 413142c252fa4dce7c27028cc0487e5247f7ce700e13945e4693120ad5cc47d4
+SIZE (openj9-openjdk-jdk17/openj9-0.33.0.tar.gz) = 94023542
