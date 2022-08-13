@@ -9,16 +9,12 @@
 PORTNAME=	openj9-openjdk-jdk17
 PORTVERSION=	0.33.0
 DISTNAME=	openj9-${DISTVERSIONFULL}
+DISTFILES=	${DISTNAME}${EXTRACT_SUFX}
 CATEGORIES=	java
-#USE_GITHUB=	yes
-#GH_ACCOUNT=	ibmruntimes
-MASTER_SITES=	https://github.com/ibmruntimes/openj9-openjdk-jdk17/archive/refs/tags/:openj9openjdkjdk17 \
-		https://github.com/eclipse-openj9/openj9/archive/refs/tags/:openj9 \
-		https://github.com/eclipse-openj9/openj9-omr/archive/refs/tags/:omr
-DISTFILES=	openj9-${DISTVERSIONFULL}.tar.gz:openj9openjdkjdk17 \
-		openj9-${DISTVERSIONFULL}.tar.gz:openj9 \
-		openj9-${DISTVERSIONFULL}.tar.gz:omr
-DIST_SUBDIR     = ${PORTNAME}
+USE_GITHUB=	nodefault
+GH_TUPLE=	ibmruntimes:openj9-openjdk-jdk17:openj9-${DISTVERSIONFULL}:ibmruntime \
+		eclipse-openj9:openj9:openj9-${DISTVERSIONFULL}:openj9/../openj9-openjdk-jdk17-openj9-${DISTVERSIONFULL}/openj9 \
+		eclipse-openj9:openj9-omr:openj9-${DISTVERSIONFULL}:openj9omr/../openj9-openjdk-jdk17-openj9-${DISTVERSIONFULL}/omr
 WRKSRC=		${WRKDIR}/${PORTNAME}-${DISTNAME}
        
 MAINTAINER=	bmarwell@apache.org
