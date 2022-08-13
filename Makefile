@@ -44,6 +44,5 @@ USE_IMAKE=	yes
 
 pre-configure:
 	 ${CHMOD} +x ${WRKSRC}/configure ${WRKSRC}/get_source.sh
-	 ${WRKSRC}/get_source.sh
 
 .include <bsd.port.mk>
