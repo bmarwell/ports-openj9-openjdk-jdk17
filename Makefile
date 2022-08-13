@@ -38,8 +38,8 @@ CONFIGURE_ENV=  CC=${CC} \
 CONFIGURE_ARGS=	--with-boot-jdk=/usr/local/openjdk17 \
 		--enable-jitserver=no \
 		--with-cmake \
-		--with-openj9-cc=/usr/local/bin/gcc \
-		--with-openj9-cxx=/usr/local/bin/g++
+		--with-openj9-cc=/${CC} \
+		--with-openj9-cxx=${CXX}
 # bootstrap JDK
 BOOTSTRAPJDKDIR?=       ${LOCALBASE}/bootstrap-openjdk17
 BUILD_DEPENDS+=         ${BOOTSTRAPJDKDIR}/bin/javac:java/bootstrap-openjdk17
