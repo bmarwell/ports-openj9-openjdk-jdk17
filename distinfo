@@ -1,6 +1,4 @@
 TIMESTAMP = 1660390363
-SHA256 (openj9-0.33.0.tar.gz) = 413142c252fa4dce7c27028cc0487e5247f7ce700e13945e4693120ad5cc47d4
-SIZE (openj9-0.33.0.tar.gz) = 94023542
 SHA256 (ibmruntimes-openj9-openjdk-jdk17-openj9-0.33.0_GH0.tar.gz) = 413142c252fa4dce7c27028cc0487e5247f7ce700e13945e4693120ad5cc47d4
 SIZE (ibmruntimes-openj9-openjdk-jdk17-openj9-0.33.0_GH0.tar.gz) = 94023542
 SHA256 (eclipse-openj9-openj9-openj9-0.33.0_GH0.tar.gz) = 6eb9b8376a00e1ab15e91001d6b13bd76e4dd344e63594180215b78d7cb73129
