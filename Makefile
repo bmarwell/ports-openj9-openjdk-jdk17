@@ -22,10 +22,20 @@ COMMENT=	Java Development Kit based on OpenJDK with Eclipse OpenJ9
 LICENSE=	GPLv2
 #LICENSE_FILE=	${WRKSRC}/LICENSE
        
-USES=		ssl shebangfix localbase gmake
+USES=		ssl shebangfix localbase gmake xorg iconv jpeg pkgconfig
 BUILD_DEPENDS=	${LOCALBASE}/include/cups/cups.h:print/cups \
 		bash:shells/bash \
-		gsed:textproc/gsed
+		gsed:textproc/gsed \
+		autoconf>0:devel/autoconf \
+		cmake>0:devel/cmake \
+		nasm>0:devel/nasm \
+		zip>0:archivers/zip \
+		harfbuzz>0:print/harfbuzz
+LIB_DEPENDS=	libfontconfig.so:x11-fonts/fontconfig \
+		libfreetype.so:print/freetype2 \
+		libgif.so:graphics/giflib \
+                liblcms2.so:graphics/lcms2 \
+                libpng.so:graphics/png
 SHEBANG_FILES=	configure
 
 DISABLE_MAKE_JOBS=	yes
@@ -35,7 +45,7 @@ CONFIGURE_ENV=  CC="${CC}" \
                 CXX="${CXX}" \
                 CPP="${CPP}" \
                 ac_cv_path_SED=${LOCALBASE}/bin/gsed
-CONFIGURE_ARGS=	--with-boot-jdk=/usr/local/openjdk17 \
+CONFIGURE_ARGS=	--with-boot-jdk=${BOOTSTRAPJDKDIR} \
 		--with-toolchain-type=clang \
 		--enable-jitserver=no \
 		--with-extra-cflags="${CFLAGS}" \
@@ -43,6 +53,7 @@ CONFIGURE_ARGS=	--with-boot-jdk=/usr/local/openjdk17 \
 		--with-freetype=system \
 		--with-freetype-include=${LOCALBASE}/include/freetype2 \
 		--with-freetype-lib=${LOCALBASE}/lib \
+		--with-fontconfig=${LOCALBASE} \
 		--with-libjpeg=system \
 		--with-giflib=system \
 		--with-harfbuzz=system \
@@ -50,6 +61,8 @@ CONFIGURE_ARGS=	--with-boot-jdk=/usr/local/openjdk17 \
 		--with-zlib=system \
 		--with-lcms=system \
 		--with-cmake \
+		--x-includes=${LOCALBASE}/include \
+                --x-libraries=${LOCALBASE}/lib \
 		--with-openj9-cc="${CC}" \
 		--with-openj9-cxx="${CXX}"
 
@@ -80,7 +93,10 @@ BOOTSTRAPJDKDIR?=	${LOCALBASE}/bootstrap-openjdk17
 BUILD_DEPENDS+=		${BOOTSTRAPJDKDIR}/bin/javac:java/bootstrap-openjdk17
 .endif
 
+USE_AUTOCONF=   yes
 USE_IMAKE=	yes
+USE_XORG=	x11 xext xi xrandr xrender xt xtst
+NO_CCACHE=      yes
 
 pre-configure:
 	 ${CHMOD} +x ${WRKSRC}/configure
